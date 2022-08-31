@@ -1,0 +1,18 @@
+html {
+  font-size: 112.5%;
+}
+
+body {
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: $dark;
+  }
+}

@@ -1,0 +1,32 @@
+.header {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: $navbarHeight;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 4rem;
+
+  .left {
+    h4 {
+      margin: 0;
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      padding: 1rem;
+    }
+  }
+}

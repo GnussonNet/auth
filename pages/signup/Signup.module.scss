@@ -1,0 +1,21 @@
+.signup {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: min(400px, 100%);
+}
+
+.userInput {
+  padding: 0.6rem;
+  border: 2px solid $primary;
+  background-color: $main;
+  margin-bottom: 1rem;
+  border-radius: $borderRadius;
+}

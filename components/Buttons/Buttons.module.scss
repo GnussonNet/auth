@@ -1,0 +1,34 @@
+.button {
+  border: 2px solid $primary;
+  border-radius: $borderRadius;
+  outline: none;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &--primary_button {
+    background-color: $primary;
+
+    &:hover {
+      background-color: $main;
+    }
+  }
+
+  &--secondary_button {
+    border: 2px solid $primary;
+    background-color: $main;
+
+    &:hover {
+      background-color: $primary;
+    }
+  }
+
+  &--alternative_button {
+    border: 2px solid $dark;
+    background-color: $dark;
+
+    &:hover {
+      border-bottom: 2px solid $primary;
+    }
+  }
+}
