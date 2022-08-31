@@ -31,4 +31,34 @@
       border-bottom: 2px solid $primary;
     }
   }
+
+  &--success_button {
+    border: 2px solid $successBorder;
+    background-color: $successBg;
+
+    &:hover {
+      background-color: $successBorder;
+      color: $dark;
+    }
+  }
+
+  &--warning_button {
+    border: 2px solid $warningBorder;
+    background-color: $warningBG;
+
+    &:hover {
+      background-color: $warningBorder;
+      color: $dark;
+    }
+  }
+
+  &--error_button {
+    border: 2px solid $errorBorder;
+    background-color: $errorBG;
+
+    &:hover {
+      background-color: $errorBorder;
+      color: $dark;
+    }
+  }
 }
