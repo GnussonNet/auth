@@ -27,7 +27,7 @@ const SignIn: NextPage = (props): JSX.Element => {
     <Layout title="GnussonAuth | Sign In">
       <div className={styles.signin}>
         <form className={styles.form} onSubmit={handleSubmit}>
-          <h1>Sign in</h1>
+          <h2>Sign in</h2>
           <label htmlFor="email">Email</label>
           <input className={styles.userInput} name="email" value={userInfo.email} onChange={({ target }) => setUserInfo({ ...userInfo, email: target.value })} type="text" placeholder="email@domain.com" />
           <label htmlFor="password">Password</label>

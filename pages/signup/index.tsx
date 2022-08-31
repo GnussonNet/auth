@@ -39,7 +39,7 @@ const Signup: NextPage = (props): JSX.Element => {
     <Layout title="GnussonAuth | Sign Up">
       <div className={styles.signup}>
         <form className={styles.form} onSubmit={handleSubmit}>
-          <h1>Sign Up</h1>
+          <h2>Sign Up</h2>
           <label htmlFor="name">Full name</label>
           <input className={styles.userInput} value={userInfo.name} onChange={({ target }) => setUserInfo({ ...userInfo, name: target.value })} type="text" placeholder="Full name" />
           <label htmlFor="name">Username</label>
