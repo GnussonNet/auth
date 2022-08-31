@@ -3,6 +3,7 @@ import styles from '../styles/modules/Home.module.scss';
 import { useSession } from 'next-auth/react';
 import { Layout } from '../components/Layout/Layout';
 import { PrimaryButton, SecondaryButton } from '../components/Buttons/Buttons';
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   const { data: session, status } = useSession();
@@ -17,7 +18,15 @@ const Home: NextPage = () => {
               <p className={styles.description}>GnussonNet is a Decentralized solution to Credentials Authentications; where Users always hold the private key of their account, the credentials match and are always valid. This protects Users from many attacks and phishing attempts.</p>
 
               <div className={styles.buttons}>
-                <PrimaryButton title="Create free account" />
+                {status === 'authenticated' ? (
+                  <Link href="/dashboard">
+                    <PrimaryButton title="Dashboard" />
+                  </Link>
+                ) : (
+                  <Link href="/signup">
+                    <PrimaryButton title="Create free account" />
+                  </Link>
+                )}
                 <SecondaryButton title="Learn more" />
               </div>
             </div>
