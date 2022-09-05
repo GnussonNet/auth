@@ -1,34 +1,63 @@
-import React from 'react';
-import styles from './Header.module.scss';
+// Imports
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useSession } from 'next-auth/react';
-import Buttons from '../Buttons/Buttons';
+import { Menu, X } from 'react-feather';
+
+// Styles
+import styles from './Header.module.scss';
 
 export default function Header() {
-  const { data: session, status } = useSession();
+  // Open, close state for the mobile menu
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Size of the current window is used to know if the menu should be accessible or not
+  const [size, setSize] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  // Update the size state to current window size
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Close menu if screen size larger then 992px (md breakpoint) or the user clicks on a link or close button
+  useEffect(() => {
+    if (size.width > 992 && menuOpen) {
+      setMenuOpen(false);
+    }
+  }, [size.width, menuOpen]);
 
   return (
+    // Animates from the top with opacity
     <header className={styles.header}>
-      <div className={styles.left}>
-        <Link href="/">
-          <h4>Gnusson Auth</h4>
+      <div className={styles.content}>
+        {/* Logo with text */}
+        <Link href="/" replace={true} className={styles.logo}>
+          <h4 className={styles.logo__title}>Gnusson Auth</h4>
         </Link>
-      </div>
-      <div className={styles.right}>
-        {status === 'authenticated' ? (
-          <>
-            <Link href="/dashboard">
-              Dashboard
-            </Link>
-          </>
-        ) : (
-          <>
-            <Link href="/signup">
-              Create free account
-            </Link>
-            <Link href="/signin">Sign in</Link>
-          </>
-        )}
+
+        <nav className={`${styles.nav} ${menuOpen && size.width < 992 ? styles.isMenu : ''}`}>
+          <ul>
+            <li>
+              <Link href="/signup">Create free account</Link>
+            </li>
+            <li>
+              <Link href="/signin">Sign In</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* Menu- or close button only visible on small screens  */}
+        <div className={styles.toggle}>{!menuOpen ? <Menu onClick={() => setMenuOpen(true)} /> : <X onClick={() => setMenuOpen(false)} />}</div>
       </div>
     </header>
   );

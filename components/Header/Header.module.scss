@@ -1,34 +1,187 @@
 .header {
-  top: 0;
-  left: 0;
-  position: absolute;
+  position: fixed;
+  border-top: 5px solid $primary;
   width: 100%;
-  height: $navbarHeight;
+  height: $headerMobileHeight;
+  padding: 0 1rem;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 0 4rem;
-
-  .left {
-    h4 {
-      margin: 0;
-      font-weight: 600;
-      cursor: pointer;
-    }
+  &:before {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    backdrop-filter: blur(4px);
+    background: rgba($dark, 0.9);
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
   }
 
-  .right {
+  @include breakpoint(md) {
+    padding: 0 2rem;
+  }
+  @include breakpoint(lg) {
+    padding: 0 4rem;
+    height: $headerHeight;
+  }
+  transition: 0.3s ease all;
+
+.content {
+    overflow: hidden;
+    color: $text;
+    margin: 0 auto;
+    max-width: 1920px;
+    height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    z-index: 100;
 
-    a {
-      color: #fff;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
       text-decoration: none;
-      text-transform: uppercase;
 
-      padding: 1rem;
+      img {
+        width: auto;
+        height: 24px;
+        transition: 0.3s ease all;
+
+        @include breakpoint(lg) {
+          height: 28px;
+        }
+      }
+      &__title {
+        font-weight: 800;
+        margin: 0;
+        padding: 0.4rem;
+      }
+    }
+
+    .nav {
+      top: 0;
+      right: 100%;
+      bottom: 0;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transform: translate(0);
+      transition: 0.3s ease transform;
+
+      @include breakpoint(lg) {
+        transform: none;
+        flex-direction: row;
+        background: transparent;
+        width: auto;
+        height: 100%;
+        position: static;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+        @include breakpoint(lg) {
+          flex-direction: row;
+          align-items: center;
+          margin-bottom: 0;
+          margin-right: calc(0.5rem + #{$spacing-md});
+        }
+        li {
+          &:not(:last-child) {
+            margin-bottom: 40px;
+            @include breakpoint(lg) {
+              margin-bottom: 0;
+              margin-right: $spacing-md;
+            }
+          }
+          
+          &.active {
+            a {
+              color: #5683ff;
+              opacity: 1;
+            }
+            a:before {
+              visibility: visible;
+              transform: scaleX(1);
+              -webkit-transform: scaleX(1);
+              color: #5683ff;
+            }
+          }
+          
+          a {
+            font-weight: 500;
+            color: inherit;
+            padding: 0.4em 0.8em;
+            border-radius: $borderRadius;
+            transition: 0.3s ease all;
+            text-decoration: none;
+            position: relative;
+
+            @include breakpoint(lg) {
+              padding: 0.8em 1.2em;
+            }
+
+
+            &:before {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: 3px;
+              bottom: 0;
+              left: 0;
+              background-color: #5683ff;
+              visibility: hidden;
+              transform: scaleX(0);
+              -webkit-transform: scaleX(0);
+              transition: all 0.25s ease-in-out 0s;
+              -webkit-transition: all 0.25s ease-in-out 0s;
+            }
+
+            &:hover:before {
+              visibility: visible;
+              transform: scaleX(1);
+              -webkit-transform: scaleX(1);
+              color: #5683ff;
+            }
+
+            &:hover {
+              color: #5683ff;
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      &.isMenu {
+        transform: translate(100%);
+        background: rgba($dark, 0.9);
+        backdrop-filter: blur(4px);
+      }
+    }
+
+    .toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: 0.3s ease all;
+      position: relative;
+
+      &:hover {
+        color: $primary;
+      }
+
+      @include breakpoint(lg) {
+        display: none;
+      }
     }
   }
 }
