@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Header.module.scss';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import { PrimaryButton } from '../Buttons/Buttons';
+import Buttons from '../Buttons/Buttons';
 
 export default function Header() {
   const { data: session, status } = useSession();
@@ -18,13 +18,13 @@ export default function Header() {
         {status === 'authenticated' ? (
           <>
             <Link href="/dashboard">
-              <PrimaryButton title="Dashboard" />
+              Dashboard
             </Link>
           </>
         ) : (
           <>
             <Link href="/signup">
-              <PrimaryButton title="Create free account" />
+              Create free account
             </Link>
             <Link href="/signin">Sign in</Link>
           </>
