@@ -42,6 +42,16 @@ input,
 label,
 button {
   font-family: $bodyFont;
+  font-size: 1rem;
+}
+
+input,
+button {
+  font-weight: 500;
+}
+
+label {
+  font-size: 0.9rem;
 }
 
 p {
