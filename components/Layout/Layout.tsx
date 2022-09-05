@@ -25,12 +25,10 @@ export const Layout = ({ children, title }: WrapperProps) => {
         <meta name="msapplication-TileColor" content="#5683ff" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=1.0.0" />
         <meta name="theme-color" content="#181A1F" />
-        <title>{title || "GnussonAuth"}</title>
+        <title>{title || 'GnussonAuth'}</title>
       </Head>
-      <div className={styles.container}>
-        <Header />
-        {children}
-      </div>
+      <Header />
+      <div className={styles.container}>{children}</div>
     </>
   );
 };
