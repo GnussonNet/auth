@@ -25,25 +25,16 @@ export default NextAuth({
       authorize: async (credentials) => {
         await dbConnect();
 
-        var user;
-        if (credentials?.email.includes('@')) {
-          // Find user with the email
-          user = await User.findOne({
-            email: credentials?.email,
-          });
-        } else {
-          // Find user with the username
-          user = await User.findOne({
-            username: credentials?.email,
-          });
-        }
+        const user = await User.findOne({
+          email: credentials?.email.toLowerCase(),
+        });
 
-        // Email or Username not found
+        // Email not found
         if (!user) {
           if (credentials?.email.includes('@')) {
-            throw new Error('Email is not registered');
+            throw new Error('Email or password is incorrect');
           } else {
-            throw new Error('Username is not registered');
+            throw new Error('Email or password is incorrect');
           }
         }
 
@@ -52,7 +43,7 @@ export default NextAuth({
 
         // Incorrect password
         if (!isPasswordCorrect) {
-          throw new Error('Password is incorrect');
+          throw new Error('Email or password is incorrect');
         }
 
         return user;
@@ -61,9 +52,10 @@ export default NextAuth({
   ],
   callbacks: {
     jwt: ({ token, user }) => {
-      // first time jwt callback is run, user object is available
+      // first time jwt callback is run, user object is available      
       if (user) {
         token.id = user.id;
+        token.displayName = user.displayName;
       }
       return token;
     },
