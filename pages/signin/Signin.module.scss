@@ -9,13 +9,103 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: min(400px, 100%);
+  width: min(500px, 100%);
+
+  input[type='submit'] {
+    margin-block: 1.4rem;
+  }
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+
+  .userInput {
+    width: 100%;
+    outline-offset: 3px;
+  }
+
+  .iconContainer {
+    position: absolute;
+    left: 0.4rem;
+    top: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+
+    svg {
+      color: #7585ae;
+    }
+  }
 }
 
 .userInput {
-  padding: 0.6rem;
+  margin-block: 0.4rem 1.2rem;
+  padding: 0.8rem;
   border: 2px solid $primary;
   background-color: $main;
-  margin-bottom: 1rem;
   border-radius: $borderRadius;
+  padding-left: 2.7rem;
+
+  &--password {
+    margin-block: 0.4rem;
+  }
+}
+
+.errorContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-left: 0.7rem;
+  color: $text;
+  font-size: 0.8rem;
+  background-color: #522424;
+  border: 1px solid $errorBorder;
+  border-radius: $borderRadius;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  p {
+    margin-block: 0;
+    font-size: 0.9rem;
+  }
+}
+
+.warningContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-left: 0.7rem;
+  color: $text;
+  font-size: 0.8rem;
+  background-color: #524624;
+  border: 1px solid $warningBorder;
+  border-radius: $borderRadius;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  p {
+    margin-block: 0;
+    font-size: 0.9rem;
+  }
+}
+
+.forgotCredentials {
+  a {
+    color: $primary;
+    text-decoration: none;
+    padding-left: 0.25rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
