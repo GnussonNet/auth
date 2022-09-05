@@ -3,11 +3,10 @@ import styles from '../styles/modules/Home.module.scss';
 import { useSession } from 'next-auth/react';
 import { Layout } from '../components/Layout/Layout';
 import Buttons from '../components/Buttons/Buttons';
-import Link from 'next/link';
 
 const Home: NextPage = () => {
   const { data: session, status } = useSession();
-
+  
   return (
     status && (
       <Layout>
