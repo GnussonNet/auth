@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '../../lib/dbConnect';
-import User from '../../models/User';
+import Users from '../../models/User';
 import bcrypt from 'bcrypt';
 
 interface ResponseData {
@@ -14,27 +14,27 @@ const validateEmail = (email: string): boolean => {
   return regEx.test(email);
 };
 
-const validateForm = async (name: string, username: string, email: string, password: string) => {
+const validateForm = async (name: string, displayName: string, email: string, password: string) => {
   if (name.length < 3 && name.length > 40) {
     return { error: 'Full name must be between 3 and 40 characters' };
   }
-  if (username.length <= 4) {
-    return { error: 'Username must have 4 or more characters' };
+  if (displayName.length <= 4) {
+    return { error: 'Display name must have 4 or more characters' };
   }
   if (!validateEmail(email)) {
     return { error: 'Email is invalid' };
   }
 
   await dbConnect();
-  const emailUser = await User.findOne({ email: email });
-  const usernameUser = await User.findOne({ username: username });
+  const emailUser = await Users.findOne({ email: email });
+  const displayNameUser = await Users.findOne({ displayName: new RegExp(`^${displayName}$`, 'i') });
 
   if (emailUser) {
     return { error: 'Email already exists' };
   }
 
-  if (emailUser) {
-    return { error: 'Username already exists' };
+  if (displayNameUser) {
+    return { error: 'Display name already exists' };
   }
 
   if (password.length <= 8) {
@@ -51,9 +51,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 
   // get and validate body variables
-  const { name, username, email, password } = req.body;
+  let { name, displayName, email, password } = req.body;
 
-  const errorMessage = await validateForm(name, username, email, password);
+  // Lowercase email
+  email = email.toLowerCase();
+
+  const errorMessage = await validateForm(name, displayName, email, password);
   if (errorMessage) {
     return res.status(400).json(errorMessage as ResponseData);
   }
@@ -62,9 +65,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const hashedPassword = await bcrypt.hash(password, 12);
 
   // create new User on MongoDB
-  const newUser = new User({
+  const newUser = new Users({
     name,
-    username,
+    displayName,
     email,
     hashedPassword,
   });
