@@ -8,6 +8,9 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
     prependData: `@import "imports.scss";`,
   },
+  images: {
+    domains: ['gnusson.net'],
+  },
 };
 
 module.exports = nextConfig;
