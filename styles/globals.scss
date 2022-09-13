@@ -1,5 +1,12 @@
 html {
-  font-size: 112.5%;
+  font-size: 87.5%; // 14px
+
+  @include breakpoint(md) {
+    font-size: 100%; // 16px
+  }
+  @include breakpoint(lg) {
+    font-size: 112.5%; // 18px
+  }
 }
 
 body {
