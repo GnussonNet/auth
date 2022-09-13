@@ -44,7 +44,7 @@ export default function Header() {
         {/* Logo with text */}
         <Link href="/" replace={true} >
           <a className={styles.logo}>
-            <Image src="/favicon.ico" alt="Arrow" width={36} height={36} />
+            <Image src="/logo.svg" alt="Arrow" width={36} height={36} />
           </a>
         </Link>
 
