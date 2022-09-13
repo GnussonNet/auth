@@ -135,7 +135,7 @@ const SignIn: NextPage = (props): JSX.Element => {
               value={userInfo.email}
               onChange={({ target }) => setUserInfo({ ...userInfo, email: target.value })}
               type="text"
-              placeholder="Support@gnusson.net"
+              placeholder="John@doe.com"
             />
           </div>
           <label htmlFor="password">Password</label>

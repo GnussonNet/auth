@@ -1,7 +1,6 @@
 .button {
   border: 2px solid $primary;
   border-radius: $borderRadius;
-  // outline: none;
   outline-offset: 3px;
   padding: 0.8rem 1.4rem;
   cursor: pointer;
@@ -11,14 +10,14 @@
     background-color: $primary;
 
     &:hover {
-      background-color: $main;
+      background-color: $primaryAlt;
     }
 
     &:disabled {
-      background-color: #21315e;
+      background-color: $primaryAlt;
       cursor: not-allowed;
       &:hover {
-        background-color: #21315e;
+        background-color: $primaryAlt;
       }
     }
   }
