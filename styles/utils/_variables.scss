@@ -1,8 +1,8 @@
-// font
+// Font
 $headerFont: 'Montserrat', sans-serif;
 $bodyFont: 'Montserrat', sans-serif;
 
-// colors
+// Colors
 $dark: #121212;
 $main: #21242c;
 $light: #3a3d4c;
@@ -15,7 +15,14 @@ $warningBG: #89874f;
 $errorBorder: #ff3232;
 $errorBG: #894f4f;
 
-// spacing
+// Breakpoints
+$breakpoints-sm: 576px;
+$breakpoints-md: 768px;
+$breakpoints-lg: 992px;
+$breakpoints-xl: 1200px;
+$breakpoints-xxl: 1400px;
+
+// Spacing
 $spacing-md: 8px;
 $spacing-lg: 16px;
 
@@ -23,5 +30,13 @@ $spacing-lg: 16px;
 $headerHeight: 5rem;
 $headerMobileHeight: 3.5rem;
 
-// border radius
+// Border radius
 $borderRadius: 0.25em;
+
+:export {
+  breakpoints_sm: $breakpoints-sm;
+  breakpoints_md: $breakpoints-md;
+  breakpoints_lg: $breakpoints-lg;
+  breakpoints_xl: $breakpoints-xl;
+  breakpoints_xxl: $breakpoints-xxl;
+}

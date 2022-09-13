@@ -3,35 +3,35 @@
 
   // Small breakpoint
   @if $point == sm {
-    @media (min-width: 576px) {
+    @media (min-width: $breakpoints-sm) {
       @content;
     }
   }
 
   // Medium breakpoint
   @if $point == md {
-    @media (min-width: 768px) {
+    @media (min-width: $breakpoints-md) {
       @content;
     }
   }
 
   // Large breakpoint
   @if $point == lg {
-    @media (min-width: 992px) {
+    @media (min-width: $breakpoints-lg) {
       @content;
     }
   }
 
   // Extra large breakpoint
   @if $point == xl {
-    @media (min-width: 1200px) {
+    @media (min-width: $breakpoints-xl) {
       @content;
     }
   }
 
   // Extra extra large breakpoint
   @if $point == xxl {
-    @media (min-width: 1400px) {
+    @media (min-width: $breakpoints-xxl) {
       @content;
     }
   }
