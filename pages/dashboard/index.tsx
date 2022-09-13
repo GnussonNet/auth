@@ -7,11 +7,13 @@ import styles from './Dashboard.module.scss';
 const Dashboard: NextPage = (props): JSX.Element => {
   const { data: session, status } = useSession();
 
-  return (
+  return status === 'authenticated' ? (
     <div className={styles.dashboard}>
       <Buttons type="primary" onClick={() => signOut()} title="Sign Out" />
-      {status === 'authenticated' && <Image src={session?.user?.image as string} width={30} height={30} alt="test" />}
+      <Image src={session?.user?.image as string} width={30} height={30} alt="test" />
     </div>
+  ) : (
+    <></>
   );
 };
 

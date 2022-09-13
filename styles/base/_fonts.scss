@@ -1,67 +1,15 @@
-// Space Grotesk
+// Montserrat
 @font-face {
-  font-family: 'Space Grotesk';
-  font-weight: 300;
-  src: url(../../assets/fonts/ClashDisplay_300.ttf) format('truetype');
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/fonts/Montserrat.ttf) format('truetype');
 }
-
 @font-face {
-  font-family: 'Space Grotesk';
-  font-weight: 400;
-  src: url(../../assets/fonts/ClashDisplay_400.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-  font-weight: 500;
-  src: url(../../assets/fonts/ClashDisplay_500.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-  font-weight: 600;
-  src: url(../../assets/fonts/ClashDisplay_600.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-  font-weight: 700;
-  src: url(../../assets/fonts/ClashDisplay_700.ttf) format('truetype');
-}
-
-// Clash Display
-@font-face {
-  font-family: 'Clash Display';
-  font-weight: 200;
-  src: url(../../assets/fonts/ClashDisplay_200.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Clash Display';
-  font-weight: 300;
-  src: url(../../assets/fonts/ClashDisplay_300.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Clash Display';
-  font-weight: 400;
-  src: url(../../assets/fonts/ClashDisplay_400.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Clash Display';
-  font-weight: 500;
-  src: url(../../assets/fonts/ClashDisplay_500.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Clash Display';
-  font-weight: 600;
-  src: url(../../assets/fonts/ClashDisplay_600.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Clash Display';
-  font-weight: 700;
-  src: url(../../assets/fonts/ClashDisplay_700.ttf) format('truetype');
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(/fonts/Montserrat_italic.ttf) format('truetype');
 }

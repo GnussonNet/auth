@@ -1,10 +1,11 @@
 // Imports
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'react-feather';
-
 // Styles
 import styles from './Header.module.scss';
+import Buttons from '../Buttons/Buttons';
 
 export default function Header() {
   // Open, close state for the mobile menu
@@ -42,13 +43,19 @@ export default function Header() {
       <div className={styles.content}>
         {/* Logo with text */}
         <Link href="/" replace={true} className={styles.logo}>
-          <h4 className={styles.logo__title}>Gnusson Auth</h4>
+          <a>
+            <Image src="/favicon.ico" alt="Arrow" width={36} height={36} />
+          </a>
         </Link>
 
         <nav className={`${styles.nav} ${menuOpen && size.width < 992 ? styles.isMenu : ''}`}>
           <ul>
             <li>
-              <Link href="/signup">Create free account</Link>
+              <Link href="/signup">
+                <a>
+                  <Buttons type="primary" title="Create free account" />
+                </a>
+              </Link>
             </li>
             <li>
               <Link href="/signin">Sign In</Link>
