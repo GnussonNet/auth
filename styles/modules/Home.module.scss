@@ -3,13 +3,17 @@
 }
 
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
+  padding-top: calc(($headerHeight - 2px) + 2rem);
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
+  @include breakpoint(md) {
+    padding: 4rem 0;
+    min-height: 100vh;
+  }
 }
 
 .landing_page {
@@ -20,51 +24,31 @@
   &__left {
     width: 100%;
 
-    .description {
-      font-size: 18px;
+    .title span {
+      color: $primary;
     }
 
     .buttons {
       display: flex;
       gap: 1rem;
+      flex-direction: column;
+
+      input[type="submit"] {
+        width: 100%;
+      }
+
+      @include breakpoint(md) {
+        flex-direction: row;
+      }
     }
   }
 
   &__right {
     width: 100%;
-  }
-}
+    display: none;
 
-.button {
-  border: 2px solid $primary;
-  outline: none;
-  padding: 0.6rem 1.2rem;
-  cursor: pointer;
-  text-transform: uppercase;
-
-  &--primary_button {
-    background-color: $primary;
-
-    &:hover {
-      background-color: $dark;
-    }
-  }
-
-  &--secondary_button {
-    border: 2px solid $primary;
-    background-color: $dark;
-
-    &:hover {
-      background-color: $primary;
-    }
-  }
-
-  &--alt_button {
-    border: 2px solid $dark;
-    background-color: $dark;
-
-    &:hover {
-      border-bottom: 2px solid $primary;
+    @include breakpoint(md) {
+      display: block;
     }
   }
 }
