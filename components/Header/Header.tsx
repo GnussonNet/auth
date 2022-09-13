@@ -42,8 +42,8 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.content}>
         {/* Logo with text */}
-        <Link href="/" replace={true} className={styles.logo}>
-          <a>
+        <Link href="/" replace={true} >
+          <a className={styles.logo}>
             <Image src="/favicon.ico" alt="Arrow" width={36} height={36} />
           </a>
         </Link>
