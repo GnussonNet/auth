@@ -99,7 +99,7 @@
             }
           }
           
-          a {
+          a:not(:has(input)) {
             font-weight: 500;
             color: inherit;
             padding: 0.4em 0.8em;
