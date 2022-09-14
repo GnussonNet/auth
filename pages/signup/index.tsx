@@ -6,7 +6,7 @@ import Router from 'next/router';
 import { Layout } from '../../components/Layout/Layout';
 import styles from './Signup.module.scss';
 import axios from 'axios';
-import Buttons from '../../components/Buttons/Buttons';
+import {Button} from '../../components/Buttons/Buttons';
 import { AlertCircle, AtSign, Eye, Link, Lock, User } from 'react-feather';
 
 const Signup: NextPage = (props): JSX.Element => {
@@ -254,7 +254,7 @@ const Signup: NextPage = (props): JSX.Element => {
 
           {showErrorMessage()}
 
-          <Buttons type="primary" disabled={!isValid} title="Sign Up" />
+          <Button type="primary" disabled={!isValid} title="Sign Up" />
           <p className={styles.forgotCredentials}>
             Already have an account? <a href="#">Sign in</a>
           </p>

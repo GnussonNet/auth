@@ -70,3 +70,35 @@
     }
   }
 }
+
+.nav_button {
+  height: $headerItemHeight;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 0.4rem;
+
+  background-color: $main;
+  border: 2px solid $primary;
+  border-radius: $borderRadius;
+  outline-offset: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primaryAlt;
+  }
+
+  &:disabled {
+    background-color: $primaryAlt;
+    cursor: not-allowed;
+    &:hover {
+      background-color: $primaryAlt;
+    }
+  }
+
+  img {
+    height: 1.8rem!important;
+    width: 1.8rem!important;
+    border-radius: $borderRadius;
+  }
+}

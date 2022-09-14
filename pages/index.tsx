@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import styles from '../styles/modules/Home.module.scss';
 import { useSession } from 'next-auth/react';
 import { Layout } from '../components/Layout/Layout';
-import Buttons from '../components/Buttons/Buttons';
+import { Button } from '../components/Buttons/Buttons';
 import Link from 'next/link';
 
 const Home: NextPage = () => {
@@ -23,19 +23,19 @@ const Home: NextPage = () => {
                 {status === 'authenticated' ? (
                   <Link href="/dashboard" replace={true} className={styles.logo}>
                     <a>
-                      <Buttons type="primary" title="Dashboard" />
+                      <Button type="primary" title="Dashboard" />
                     </a>
                   </Link>
                 ) : (
                   <Link href="/signup" replace={true} className={styles.logo}>
                     <a>
-                      <Buttons type="primary" title="Create free account" />
+                      <Button type="primary" title="Create free account" />
                     </a>
                   </Link>
                 )}
                 <Link href="/" replace={true} className={styles.logo}>
                   <a>
-                    <Buttons type="secondary" title="Learn more" />
+                    <Button type="secondary" title="Learn more" />
                   </a>
                 </Link>
               </div>

@@ -2,7 +2,7 @@ import { useSession } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
-import Buttons from '../Buttons/Buttons';
+import { Button } from '../Buttons/Buttons';
 import Header from '../Header/Header';
 import styles from './Layout.module.scss';
 
@@ -37,7 +37,7 @@ export const Layout = ({ children, title }: LayoutProps) => {
           <li>
             <Link href="/dashboard">
               <a>
-                <Buttons type="primary" title="Dashboard" />
+                <Button type="primary" title="Dashboard" />
               </a>
             </Link>
           </li>
@@ -46,7 +46,7 @@ export const Layout = ({ children, title }: LayoutProps) => {
             <li>
               <Link href="/signup">
                 <a>
-                  <Buttons type="primary" title="Create free account" />
+                  <Button type="primary" title="Create free account" />
                 </a>
               </Link>
             </li>
