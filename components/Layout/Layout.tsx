@@ -1,14 +1,19 @@
+import { useSession } from 'next-auth/react';
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
+import Buttons from '../Buttons/Buttons';
 import Header from '../Header/Header';
 import styles from './Layout.module.scss';
 
-interface WrapperProps {
+interface LayoutProps {
   children: React.ReactNode;
   title?: string;
 }
 
-export const Layout = ({ children, title }: WrapperProps) => {
+export const Layout = ({ children, title }: LayoutProps) => {
+  const { data: session, status } = useSession();
+
   return (
     <>
       <Head>
@@ -27,7 +32,30 @@ export const Layout = ({ children, title }: WrapperProps) => {
         <meta name="theme-color" content="#121212" />
         <title>{title || 'GnussonAuth'}</title>
       </Head>
-      <Header />
+      <Header>
+        {status === 'authenticated' ? (
+          <li>
+            <Link href="/dashboard">
+              <a>
+                <Buttons type="primary" title="Dashboard" />
+              </a>
+            </Link>
+          </li>
+        ) : (
+          <>
+            <li>
+              <Link href="/signup">
+                <a>
+                  <Buttons type="primary" title="Create free account" />
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/signin">Sign In</Link>
+            </li>
+          </>
+        )}
+      </Header>
       <div className={styles.container}>{children}</div>
     </>
   );
