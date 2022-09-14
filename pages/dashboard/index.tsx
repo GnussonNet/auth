@@ -1,17 +1,19 @@
 import { NextPage } from 'next';
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import Buttons from '../../components/Buttons/Buttons';
+import { DashboardLayout } from '../../components/DashboardLayout/DashboardLayout';
 import styles from './Dashboard.module.scss';
 
 const Dashboard: NextPage = (props): JSX.Element => {
   const { data: session, status } = useSession();
 
   return status === 'authenticated' ? (
-    <div className={styles.dashboard}>
-      <Buttons type="primary" onClick={() => signOut()} title="Sign Out" />
-      <Image src={session?.user?.image as string} width={30} height={30} alt="test" />
-    </div>
+    <DashboardLayout title="Dashboard">
+      <div className={styles.container}>
+        <div className={styles.dashboard}>
+        </div>
+      </div>
+    </DashboardLayout>
   ) : (
     <></>
   );
