@@ -1,0 +1,10 @@
+.container {
+  padding: $headerHeight 1rem;
+  @include breakpoint(md) {
+    padding: $headerHeight 2rem;
+  }
+  @include breakpoint(lg) {
+    padding: $headerHeight 4rem;
+  }
+  transition: 0.3s ease all;
+}

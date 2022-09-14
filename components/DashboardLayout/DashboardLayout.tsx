@@ -1,17 +1,17 @@
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
-import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
 import Buttons from '../Buttons/Buttons';
 import Header from '../Header/Header';
-import styles from './Layout.module.scss';
+import styles from './DashboardLayout.module.scss';
 
 interface LayoutProps {
   children: React.ReactNode;
   title?: string;
 }
 
-export const Layout = ({ children, title }: LayoutProps) => {
+export const DashboardLayout = ({ children, title }: LayoutProps) => {
   const { data: session, status } = useSession();
 
   return (
@@ -30,31 +30,15 @@ export const Layout = ({ children, title }: LayoutProps) => {
         <meta name="msapplication-TileColor" content="#5683ff" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=1.0.0" />
         <meta name="theme-color" content="#121212" />
-        <title>{title || 'GnussonAuth'}</title>
+        <title>{title || 'GnussonAuth Dashboard'}</title>
       </Head>
       <Header>
-        {status === 'authenticated' ? (
-          <li>
-            <Link href="/dashboard">
-              <a>
-                <Buttons type="primary" title="Dashboard" />
-              </a>
-            </Link>
-          </li>
-        ) : (
-          <>
-            <li>
-              <Link href="/signup">
-                <a>
-                  <Buttons type="primary" title="Create free account" />
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/signin">Sign In</Link>
-            </li>
-          </>
-        )}
+        <li>
+          <Buttons type="primary" onClick={() => signOut()} title="Sign Out" />
+        </li>
+        <li>
+          <Image src={session?.user?.image as string} width={36} height={36} alt="test" />
+        </li>
       </Header>
       <div className={styles.container}>{children}</div>
     </>
