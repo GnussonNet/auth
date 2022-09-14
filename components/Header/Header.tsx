@@ -6,8 +6,10 @@ import { Menu, X } from 'react-feather';
 // Styles
 import styles from './Header.module.scss';
 import Buttons from '../Buttons/Buttons';
+import { useSession } from 'next-auth/react';
 
 export default function Header() {
+  const { data: session, status } = useSession();
   // Open, close state for the mobile menu
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -42,7 +44,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.content}>
         {/* Logo with text */}
-        <Link href="/" replace={true} >
+        <Link href="/" replace={true}>
           <a className={styles.logo}>
             <Image src="/logo.svg" alt="Arrow" width={36} height={36} />
           </a>
@@ -50,16 +52,28 @@ export default function Header() {
 
         <nav className={`${styles.nav} ${menuOpen && size.width < 992 ? styles.isMenu : ''}`}>
           <ul>
-            <li>
-              <Link href="/signup">
-                <a>
-                  <Buttons type="primary" title="Create free account" />
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/signin">Sign In</Link>
-            </li>
+            {status === 'authenticated' ? (
+              <li>
+                <Link href="/dashboard">
+                  <a>
+                    <Buttons type="primary" title="Dashboard" />
+                  </a>
+                </Link>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link href="/signup">
+                    <a>
+                      <Buttons type="primary" title="Create free account" />
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/signin">Sign In</Link>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
 
