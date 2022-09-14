@@ -38,8 +38,8 @@
     z-index: 100;
 
     .logo {
-      width: 36px;
-      height: 36px;
+      width: $headerItemHeight;
+      height: $headerItemHeight;
     }
 
     .nav {
@@ -99,17 +99,8 @@
               color: #5683ff;
             }
           }
-
-          &:has(span) {
-            width: 36px;
-            height: 36px;
-          }
-
-          span {
-            border-radius: $borderRadius;
-          }
           
-          a:not(:has(input)) {
+          a:not(:has(button)) {
             font-weight: 500;
             color: inherit;
             padding: 0.4em 0.8em;
@@ -169,8 +160,8 @@
       position: relative;
 
       svg {
-        width: 36px;
-        height: 36px;
+        width: $headerItemHeight;
+        height: $headerItemHeight;
       }
 
       &:hover {

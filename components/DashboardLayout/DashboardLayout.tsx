@@ -2,7 +2,8 @@ import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
-import Buttons from '../Buttons/Buttons';
+import { ChevronDown } from 'react-feather';
+import { NavButton } from '../Buttons/Buttons';
 import Header from '../Header/Header';
 import styles from './DashboardLayout.module.scss';
 
@@ -34,10 +35,11 @@ export const DashboardLayout = ({ children, title }: LayoutProps) => {
       </Head>
       <Header>
         <li>
-          <Buttons type="primary" onClick={() => signOut()} title="Sign Out" />
-        </li>
-        <li>
-          <Image src={session?.user?.image as string} width={36} height={36} alt="test" />
+          <NavButton onClick={() => signOut()}>
+            <ChevronDown />
+            {session?.user?.name}
+            <Image src={session?.user?.image as string} width="50" height="50" alt="test" />
+          </NavButton>
         </li>
       </Header>
       <div className={styles.container}>{children}</div>

@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 import Router from 'next/router';
 import { Layout } from '../../components/Layout/Layout';
 import styles from './Signin.module.scss';
-import Buttons from '../../components/Buttons/Buttons';
+import { Button } from '../../components/Buttons/Buttons';
 import { AlertCircle, AtSign, Lock } from 'react-feather';
 
 const SignIn: NextPage = (props): JSX.Element => {
@@ -161,7 +161,7 @@ const SignIn: NextPage = (props): JSX.Element => {
 
           {showErrorMessage()}
 
-          <Buttons type="primary" disabled={!isValid} title="Sign In" />
+          <Button type="primary" disabled={!isValid} title="Sign In" />
           <p className={styles.forgotCredentials}>
             Forgotten your password? <a href="#">Reset password</a>{' '}
           </p>
