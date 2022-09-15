@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
-import Image from 'next/image';
 import { DashboardLayout } from '../../components/DashboardLayout/DashboardLayout';
 import styles from './Dashboard.module.scss';
 
