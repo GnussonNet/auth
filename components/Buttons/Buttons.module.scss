@@ -71,7 +71,8 @@
   }
 }
 
-.nav_button {
+.nav_profile_button {
+  padding-inline: 0.4rem;
   height: $headerItemHeight;
   display: flex;
   flex-direction: row-reverse;
@@ -94,6 +95,12 @@
     &:hover {
       background-color: $primaryAlt;
     }
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
   }
 
   img {
