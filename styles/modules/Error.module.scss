@@ -4,4 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+
+  h3 {
+    font-weight: 700;
+    margin-block: 2rem 0;
+  }
 }
