@@ -1,4 +1,4 @@
-import '../styles/main.scss';
+import '@/styles/main.scss';
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
 
