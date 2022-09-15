@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="GAuth" />
         <meta name="application-name" content="GAuth" />
         <meta name="apple-mobile-web-app-title" content="GAuth" />
