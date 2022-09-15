@@ -17,7 +17,7 @@ const Home: NextPage = () => {
               <h1 className={styles.title}>
                 Simple, secure and <span>user-friendly</span> authentication
               </h1>
-              <p className={styles.description}>GnussonNet is dedicated to providing the best authentication service on the internet. Gnusson Net will develop all of its services with security and usability in mind. Our users are the foundation of our company.</p>
+              <p className={styles.description}>GnussonNet is dedicated to providing the best authentication service on the internet. GnussonNet will develop all of its services with security and usability in mind. Our users are the foundation of our company.</p>
 
               <div className={styles.buttons}>
                 {status === 'authenticated' ? (
