@@ -3,9 +3,9 @@ import { signIn } from 'next-auth/react';
 import { FormEventHandler, useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import Router from 'next/router';
-import { Layout } from '../../components/Layout/Layout';
+import { Layout } from '@/components/Layout/Layout';
 import styles from './Signin.module.scss';
-import { Button } from '../../components/Buttons/Buttons';
+import { Button } from '@/components/Buttons/Buttons';
 import { AlertCircle, AtSign, Lock } from 'react-feather';
 
 const SignIn: NextPage = (props): JSX.Element => {

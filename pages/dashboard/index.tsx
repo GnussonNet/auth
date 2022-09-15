@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
-import { DashboardLayout } from '../../components/DashboardLayout/DashboardLayout';
+import { DashboardLayout } from '@/components/DashboardLayout/DashboardLayout';
 import styles from './Dashboard.module.scss';
 
 const Dashboard: NextPage = (props): JSX.Element => {

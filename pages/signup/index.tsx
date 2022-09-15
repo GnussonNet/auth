@@ -3,11 +3,11 @@ import { signIn } from 'next-auth/react';
 import { FormEventHandler, useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Router from 'next/router';
-import { Layout } from '../../components/Layout/Layout';
+import { Layout } from '@/components/Layout/Layout';
 import styles from './Signup.module.scss';
 import axios from 'axios';
-import {Button} from '../../components/Buttons/Buttons';
-import { AlertCircle, AtSign, Eye, Link, Lock, User } from 'react-feather';
+import { Button } from '@/components/Buttons/Buttons';
+import { AlertCircle, AtSign, Eye, Lock, User } from 'react-feather';
 
 const Signup: NextPage = (props): JSX.Element => {
   const NAME_FORMAT = /^\s*([A-Öa-ö]{1,}([\.,] |[-']| ))+[A-Öa-ö]+\.?\s*$/;
