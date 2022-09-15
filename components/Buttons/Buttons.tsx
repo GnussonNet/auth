@@ -1,4 +1,4 @@
-import React, { Children, MouseEventHandler } from 'react';
+import React, { MouseEventHandler } from 'react';
 import styles from './Buttons.module.scss';
 
 interface buttonProps {
@@ -8,10 +8,9 @@ interface buttonProps {
   type: 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger';
 }
 
-interface navButtonProps {
+interface navProfileButtonProps {
   children: React.ReactNode;
   onClick?: MouseEventHandler;
-  disabled?: boolean;
 }
 
 
@@ -23,12 +22,12 @@ export const Button = ({ title, onClick, disabled, type }: buttonProps): JSX.Ele
   );
 };
 
-export const NavButton = ({ onClick, disabled, children }: navButtonProps): JSX.Element => {
+export const NavProfileButton = ({ onClick, children }: navProfileButtonProps): JSX.Element => {
   return (
-    <button className={`${styles.nav_button}`} onClick={onClick} disabled={disabled}>
+    <div className={`${styles.nav_profile_button}`} onClick={onClick}>
       <>
         {children}
       </>
-    </button>
+    </div>
   );
 };

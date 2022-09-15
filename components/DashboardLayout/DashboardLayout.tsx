@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
 import { ChevronDown } from 'react-feather';
-import { NavButton } from '../Buttons/Buttons';
+import { NavProfileButton } from '../Buttons/Buttons';
 import Header from '../Header/Header';
 import styles from './DashboardLayout.module.scss';
 
@@ -35,11 +35,11 @@ export const DashboardLayout = ({ children, title }: LayoutProps) => {
       </Head>
       <Header>
         <li>
-          <NavButton onClick={() => signOut()}>
+          <NavProfileButton onClick={() => signOut()}>
             <ChevronDown />
-            {session?.user?.name}
+            <p>{session?.user?.name}</p>
             <Image src={session?.user?.image as string} width="50" height="50" alt="test" />
-          </NavButton>
+          </NavProfileButton>
         </li>
       </Header>
       <div className={styles.container}>{children}</div>
