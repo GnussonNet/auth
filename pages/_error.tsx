@@ -8,7 +8,7 @@ interface Props {
 
 const Error: NextPage<Props> = ({ statusCode }) => {
   return (
-    <Layout title={statusCode ? `GAuth | ${statusCode}` : 'GAuth | An error occurred on client'}>
+    <Layout title={statusCode ? `GnussonAuth | ${statusCode}` : 'GnussonAuth | An error occurred on client'}>
       <div className={styles.container}>
         <h3>{statusCode ? `An ${statusCode} error occurred on server` : 'An error occurred on client'}</h3>
       </div>
