@@ -36,10 +36,12 @@
     align-items: center;
     justify-content: space-between;
     z-index: 100;
+    padding-inline: 4px;
 
     .logo {
       width: $headerItemHeight;
       height: $headerItemHeight;
+      outline-offset: 3px;
     }
 
     .nav {
@@ -76,7 +78,6 @@
           flex-direction: row;
           align-items: center;
           margin-bottom: 0;
-          margin-right: calc(0.5rem + #{$spacing-md});
         }
         li {
           &:not(:last-child) {
