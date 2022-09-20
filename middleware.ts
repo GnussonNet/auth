@@ -12,6 +12,14 @@ export async function middleware(req: any) {
     if (!session) return NextResponse.redirect(new URL('/signin', req.url));
   }
 
+  if (req.nextUrl.pathname === '/profile') {
+    if (session) return NextResponse.redirect(new URL(`/profile/${session.displayName}`, req.url));
+  }
+
+  if (req.nextUrl.pathname.startsWith('/profile')) {
+    if (!session) return NextResponse.redirect(new URL('/signin', req.url));
+  }
+
   if (req.nextUrl.pathname.startsWith('/signin') || req.nextUrl.pathname.startsWith('/signup')) {
     if (session) return NextResponse.redirect(new URL('/dashboard', req.url));
   }
@@ -19,5 +27,5 @@ export async function middleware(req: any) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/dashboard/:path*', '/signin', '/signup/:path*'],
+  matcher: ['/dashboard/:path*', '/signin', '/signup/:path*', '/profile/:path*'],
 };

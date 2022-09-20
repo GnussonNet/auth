@@ -4,6 +4,7 @@
   width: 100%;
   height: $headerHeight;
   padding: 0 1rem;
+  z-index: 9999;
 
   &:before {
     content:"";
