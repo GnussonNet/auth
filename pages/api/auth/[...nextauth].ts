@@ -52,18 +52,18 @@ export default NextAuth({
   ],
   callbacks: {
     jwt: ({ token, user }) => {
-      // first time jwt callback is run, user object is available      
+      // first time jwt callback is run, user object is available
       if (user) {
         token.id = user.id;
-        token.displayName = user.displayName;
+        token.displayName = user.displayName as string;
       }
       return token;
     },
     session: ({ session, token }) => {
       if (token) {
         session.id = token.id;
+        if (session && session.user) session.user.displayName = token.displayName;
       }
-
       return session;
     },
   },
