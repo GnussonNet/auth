@@ -1,6 +1,7 @@
 import { signOut, useSession } from 'next-auth/react';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { ChevronDown } from 'react-feather';
 import { NavProfileButton } from '../Buttons/Buttons';
@@ -14,6 +15,8 @@ interface LayoutProps {
 
 export const DashboardLayout = ({ children, title }: LayoutProps) => {
   const { data: session, status } = useSession();
+  const router = useRouter()
+  
 
   return (
     <>
@@ -22,10 +25,10 @@ export const DashboardLayout = ({ children, title }: LayoutProps) => {
       </Head>
       <Header>
         <li>
-          <NavProfileButton onClick={() => signOut()}>
+          <NavProfileButton onClick={() => router.push(`/profile/${session?.user?.displayName}`)}>
             <ChevronDown />
-            <p>{session?.user?.name}</p>
-            <Image src={session?.user?.image as string} width="50" height="50" alt="test" />
+            <p>{session?.user?.displayName}</p>
+            <Image src={session?.user?.image as string} width="50" height="50" alt="user profile" />
           </NavProfileButton>
         </li>
       </Header>
