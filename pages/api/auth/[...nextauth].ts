@@ -78,7 +78,7 @@ export default NextAuth({
     secret: process.env.NEXTAUTH_JWT_SECRET,
   },
   pages: {
-    signIn: 'auth/signin',
+    signIn: '/signin',
   },
   debug: process.env.NODE_ENV === 'development',
 });
