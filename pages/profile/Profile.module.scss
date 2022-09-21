@@ -18,9 +18,16 @@
     img {
       height: 6rem !important;
       width: 6rem !important;
+      border-radius: 100%;
     }
+  }
+  p {
+    margin: 0;
   }
   h2 {
     margin: 0;
+  }
+  button {
+    margin-top: 1rem;
   }
 }
