@@ -12,6 +12,8 @@ export default function Document() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=1.0.0" />
         <link rel="manifest" href="/site.webmanifest?v=1.0.0" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1.0.0" color="#5683ff" />
+        <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="/splash.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="shortcut icon" href="/favicon.ico?v=1.0.0" />
         <meta name="msapplication-TileColor" content="#5683ff" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png?v=1.0.0" />
