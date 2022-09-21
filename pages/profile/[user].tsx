@@ -38,7 +38,7 @@ const UserProfile: NextPage<Props> = ({ userInfo }) => {
             <p>id: {session.user.id}</p>
             <p>Name: {session.user.name}</p>
             <p>Email: {session.user.email}</p>
-            <Button type="primary" title="Sign Out" onClick={() => signOut({ callbackUrl: `${window.location.origin}` })} />
+            <Button type="primary" title="Sign Out" onClick={() => signOut({ callbackUrl: `${process.env.NEXTAUTH_URL}` })} />
           </div>
         </div>
       ) : (
@@ -62,7 +62,7 @@ export async function getServerSideProps(context: any) {
 
   const { user } = params;
 
-  const { userInfo } = await fetch('http://localhost:3000/api/users', {
+  const { userInfo } = await fetch(`${process.env.NEXTAUTH_URL}/api/users`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
