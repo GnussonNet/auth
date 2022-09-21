@@ -2,9 +2,12 @@ import { useSession } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
-import { Button } from '../Buttons/Buttons';
+import { ChevronDown } from 'react-feather';
+import { Button, NavProfileButton } from '../Buttons/Buttons';
 import Header from '../Header/Header';
 import styles from './Layout.module.scss';
+import Image from 'next/image';
+import router from 'next/router';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -21,13 +24,22 @@ export const Layout = ({ children, title }: LayoutProps) => {
       </Head>
       <Header>
         {status === 'authenticated' ? (
-          <li>
-            <Link href="/dashboard">
-              <a>
-                <Button type="primary" title="Dashboard" />
-              </a>
-            </Link>
-          </li>
+          <>
+            <li>
+              <Link href="/dashboard">
+                <a>
+                  <Button type="navbar" title="Dashboard" />
+                </a>
+              </Link>
+            </li>
+            <li>
+              <NavProfileButton onClick={() => router.push(`/profile/${session?.user?.displayName}`)}>
+                <ChevronDown />
+                <p>{session?.user?.displayName}</p>
+                <Image src={session?.user?.image as string} width="50" height="50" alt="user profile" />
+              </NavProfileButton>
+            </li>
+          </>
         ) : (
           <>
             <li>

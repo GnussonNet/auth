@@ -5,7 +5,7 @@ interface buttonProps {
   title: React.ReactNode;
   onClick?: MouseEventHandler;
   disabled?: boolean;
-  type: 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger';
+  type: 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' | 'navbar';
 }
 
 interface navProfileButtonProps {

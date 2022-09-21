@@ -1,9 +1,9 @@
 import { NextPage } from 'next';
 import { signOut, useSession } from 'next-auth/react';
-import { DashboardLayout } from '@/components/DashboardLayout/DashboardLayout';
 import { Button } from '@/components/Buttons/Buttons';
 import styles from './Profile.module.scss';
 import Image from 'next/image';
+import { Layout } from '@/components/Layout/Layout';
 
 interface Props {
   displayName: string;
@@ -13,7 +13,7 @@ const UserProfile: NextPage<Props> = ({ displayName }) => {
   const { data: session, status } = useSession();
 
   return status === 'authenticated' && session && session.user ? (
-    <DashboardLayout title="Profile">
+    <Layout title="Profile">
       <div className={styles.container}>
         <div className={styles.image_container}>
           <Image src={session.user.image as string} width="100" height="100" alt="" />
@@ -22,7 +22,7 @@ const UserProfile: NextPage<Props> = ({ displayName }) => {
         <p>{session.user.email}</p>
         <Button type="primary" title="Sign Out" onClick={() => signOut()} />
       </div>
-    </DashboardLayout>
+    </Layout>
   ) : (
     <></>
   );
