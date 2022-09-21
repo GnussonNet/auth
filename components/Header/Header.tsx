@@ -47,7 +47,7 @@ const Header = ({ children }: HeaderProps) => {
         {/* Logo with text */}
         <Link href="/" replace={true}>
           <a className={styles.logo}>
-            <Image src="/logo.svg" alt="Arrow" width={50} height={50} />
+            <Image src="/logo.svg" alt="Arrow" width={100} height={100} />
           </a>
         </Link>
 
