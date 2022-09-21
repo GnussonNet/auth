@@ -58,7 +58,7 @@ const UserProfile: NextPage<Props> = ({ userInfo }) => {
 
 export async function getServerSideProps(context: any) {
   const { params } = context;
-  const { resolvedUrl } = context;  
+  const { resolvedUrl } = context;
 
   const { user } = params;
 
@@ -69,7 +69,14 @@ export async function getServerSideProps(context: any) {
     },
     body: JSON.stringify({ user }),
   }).then((res) => res.json());
-  
+
+  if (!userInfo) {
+    return {
+      props: {
+        userInfo: null,
+      },
+    };
+  }
 
   if (resolvedUrl === `/profile/${userInfo.id}` && userInfo.displayName) {
     return {
@@ -82,7 +89,7 @@ export async function getServerSideProps(context: any) {
 
   return {
     props: {
-      userInfo: userInfo ?? null,
+      userInfo: userInfo,
     },
   };
 }
