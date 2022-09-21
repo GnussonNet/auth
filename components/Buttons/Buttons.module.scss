@@ -69,6 +69,26 @@
       color: $dark;
     }
   }
+
+  &--navbar_button {
+    padding: 0;
+    padding-inline: 0.8rem;
+    height: $headerItemHeight;
+    background-color: $primary;
+    width: 100%;
+
+    &:hover {
+      background-color: $primaryAlt;
+    }
+
+    &:disabled {
+      background-color: $primaryAlt;
+      cursor: not-allowed;
+      &:hover {
+        background-color: $primaryAlt;
+      }
+    }
+  }
 }
 
 .nav_profile_button {
