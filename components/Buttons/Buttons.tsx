@@ -5,7 +5,14 @@ interface buttonProps {
   title: React.ReactNode;
   onClick?: MouseEventHandler;
   disabled?: boolean;
-  type: 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger' | 'navbar';
+  type: 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger';
+}
+
+interface navButtonProps {
+  title: React.ReactNode;
+  onClick?: MouseEventHandler;
+  type: 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'danger';
+  disabled?: boolean;
 }
 
 interface navProfileButtonProps {
@@ -21,6 +28,14 @@ export const Button = ({ title, onClick, disabled, type }: buttonProps): JSX.Ele
     </button>
   );
 };
+
+export const NavButton = ({ title, onClick, type, disabled }: navButtonProps): JSX.Element => {
+  return (
+    <button className={`${styles.nav_button} ${styles[`nav_button--${type}_button`]}`} onClick={onClick} type="submit" disabled={disabled}>
+      {title}
+    </button>
+  );
+}
 
 export const NavProfileButton = ({ onClick, children }: navProfileButtonProps): JSX.Element => {
   return (
