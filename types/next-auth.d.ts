@@ -3,6 +3,7 @@ declare module 'next-auth' {
   interface Session {
     user?: {
       displayName?: string | null | undefined;
+      id: string | null | undefined;
     } & DefaultSession['user'];
   }
 }
@@ -11,6 +12,7 @@ declare module 'next-auth' {
 declare module 'next-auth/jwt/' {
   interface JWT {
     displayName?: string | null | undefined;
+    id: string | null | undefined;
   }
 }
 
@@ -18,6 +20,7 @@ declare module 'next-auth/user' {
   interface User {
     user?: {
       displayName?: string | null | undefined;
+      id: string | null | undefined;
     } & DefaultUser['user'];
   }
 }

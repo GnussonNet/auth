@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 100vh;
+  min-height: calc(100vh - 2 * $headerHeight);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -14,10 +14,7 @@ export async function middleware(req: any) {
 
   if (req.nextUrl.pathname === '/profile') {
     if (session) return NextResponse.redirect(new URL(`/profile/${session.displayName}`, req.url));
-  }
-
-  if (req.nextUrl.pathname.startsWith('/profile')) {
-    if (!session) return NextResponse.redirect(new URL('/signin', req.url));
+    else return NextResponse.redirect(new URL('/signin', req.url));
   }
 
   if (req.nextUrl.pathname.startsWith('/signin') || req.nextUrl.pathname.startsWith('/signup')) {
