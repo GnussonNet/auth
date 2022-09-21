@@ -19,7 +19,7 @@ const UserProfile: NextPage<Props> = ({ displayName }) => {
           <Image src={session.user.image as string} width="100" height="100" alt="" />
         </div>
         <h2>{displayName}</h2>
-        <p>{session.user.email}</p>
+        <p>id: {session.user.id}</p>
         <Button type="primary" title="Sign Out" onClick={() => signOut()} />
       </div>
     </Layout>

@@ -62,7 +62,10 @@ export default NextAuth({
     session: ({ session, token }) => {
       if (token) {
         session.id = token.id;
-        if (session && session.user) session.user.displayName = token.displayName;
+        if (session && session.user) {
+          session.user.displayName = token.displayName;
+          session.user.id = token.sub;
+        }
       }
       return session;
     },
