@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 import { ChevronDown } from 'react-feather';
-import { Button, NavProfileButton } from '../Buttons/Buttons';
+import { Button, NavButton, NavProfileButton } from '../Buttons/Buttons';
 import Header from '../Header/Header';
 import styles from './Layout.module.scss';
 import Image from 'next/image';
@@ -28,7 +28,7 @@ export const Layout = ({ children, title }: LayoutProps) => {
             <li>
               <Link href="/dashboard">
                 <a>
-                  <Button type="navbar" title="Dashboard" />
+                  <NavButton type="primary" title="Dashboard" />
                 </a>
               </Link>
             </li>
@@ -45,7 +45,7 @@ export const Layout = ({ children, title }: LayoutProps) => {
             <li>
               <Link href="/signup">
                 <a>
-                  <Button type="primary" title="Create free account" />
+                  <NavButton type="primary" title="Create free account" />
                 </a>
               </Link>
             </li>
