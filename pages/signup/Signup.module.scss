@@ -1,5 +1,5 @@
 .signup {
-  height: 100vh;
+  min-height: calc(100vh - 2 * $headerHeight);
   display: flex;
   flex-direction: column;
   align-items: center;
