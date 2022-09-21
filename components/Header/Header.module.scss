@@ -7,15 +7,15 @@
   z-index: 9999;
 
   &:before {
-    content:"";
-    position:absolute;
-    z-index:-1;
+    content: '';
+    position: absolute;
+    z-index: -1;
     backdrop-filter: blur(4px);
     background: rgba($dark, 0.9);
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   @include breakpoint(md) {
@@ -27,7 +27,7 @@
   }
   transition: 0.3s ease all;
 
-.content {
+  .content {
     overflow: hidden;
     color: $text;
     margin: 0 auto;
@@ -43,6 +43,10 @@
       width: $headerItemHeight;
       height: $headerItemHeight;
       outline-offset: 3px;
+
+      img {
+        border-radius: calc($borderRadius * 2);
+      }
     }
 
     .nav {
@@ -91,7 +95,7 @@
               margin-right: $spacing-md;
             }
           }
-          
+
           &.active {
             a {
               color: #5683ff;
@@ -104,7 +108,7 @@
               color: #5683ff;
             }
           }
-          
+
           a:not(:has(button)) {
             font-weight: 500;
             color: inherit;
@@ -118,7 +122,6 @@
             @include breakpoint(lg) {
               padding: 0.8em 1.2em;
             }
-
 
             &:before {
               content: '';
